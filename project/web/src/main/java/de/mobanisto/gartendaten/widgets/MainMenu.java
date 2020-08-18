@@ -44,7 +44,7 @@ public class MainMenu
 		menu.addLink(main, "/gemüse", "Gemüse", false);
 		menu.addLink(main, "/kompost", "Kompost", false);
 
-		menu.addLink(right, "/", "Über", false);
+		menu.addLink(right, "/about", "Über", false);
 
 		return menu;
 	}

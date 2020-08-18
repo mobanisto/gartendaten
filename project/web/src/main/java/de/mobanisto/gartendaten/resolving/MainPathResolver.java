@@ -3,6 +3,7 @@ package de.mobanisto.gartendaten.resolving;
 import javax.servlet.http.HttpServletRequest;
 
 import de.mobanisto.gartendaten.pages.markdown.MarkdownResourceGenerator;
+import de.mobanisto.gartendaten.pages.other.AboutGenerator;
 import de.mobanisto.gartendaten.pages.other.GemueseGenerator;
 import de.mobanisto.gartendaten.pages.other.IndexGenerator;
 import de.mobanisto.gartendaten.pages.other.KompostGenerator;
@@ -38,6 +39,9 @@ public class MainPathResolver extends PathSpecResolver<ContentGeneratable, Void>
 					return new PflanzeGenerator(path, name);
 				});
 
+		map(new PathSpec("about"), (path, output, request, data) -> {
+			return new AboutGenerator(path);
+		});
 		map(new PathSpec("impressum"), (path, output, request, data) -> {
 			return new MarkdownResourceGenerator(path,
 					"markdown/de/impressum.md");

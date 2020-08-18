@@ -33,7 +33,7 @@ public class GemueseGenerator extends SimpleBaseGenerator
 		Collections.sort(plantNames);
 
 		for (String plantName : plantNames) {
-			list.addA("/pflanzen/" + plantName, plantName);
+			list.addA("/pflanze/" + plantName, plantName);
 		}
 	}
 

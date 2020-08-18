@@ -1,6 +1,8 @@
 package de.mobanisto.gartendaten;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Properties;
 
 import javax.servlet.ServletContextEvent;
@@ -11,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.LoggerContext;
+import de.mobanisto.gartendaten.io.LoadData;
 import de.topobyte.cachebusting.CacheBusting;
 import de.topobyte.melon.commons.io.Resources;
 
@@ -41,6 +44,13 @@ public class InitListener implements ServletContextListener
 
 		Config.INSTANCE.setData("nothing");
 
+		logger.info("loading data...");
+		try {
+			loadData();
+		} catch (IOException e) {
+			logger.error("Error while loading data", e);
+		}
+
 		logger.info("loading secure configuration...");
 		Properties secureConfig = new Properties();
 		try (InputStream input = Resources.stream("secure.properties")) {
@@ -54,6 +64,20 @@ public class InitListener implements ServletContextListener
 		logger.info("done");
 		logger.info(String.format("Initialized in %.2f seconds",
 				(stop - start) / 1000d));
+	}
+
+	private void loadData() throws IOException
+	{
+		Data data = new Data();
+		Website.INSTANCE.setData(data);
+
+		LoadData loader = new LoadData();
+
+		loader.loadWikidata(
+				new InputStreamReader(Resources.stream("data/wikidata.csv")),
+				data);
+		loader.loadMix(new InputStreamReader(Resources.stream("data/mix.csv")),
+				data);
 	}
 
 	@Override

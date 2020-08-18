@@ -12,4 +12,8 @@ public class Website
 	@Setter
 	private CacheBuster cacheBuster;
 
+	@Getter
+	@Setter
+	private Data data;
+
 }

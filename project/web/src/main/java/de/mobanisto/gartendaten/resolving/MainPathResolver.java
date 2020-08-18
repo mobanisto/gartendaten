@@ -3,6 +3,7 @@ package de.mobanisto.gartendaten.resolving;
 import javax.servlet.http.HttpServletRequest;
 
 import de.mobanisto.gartendaten.pages.markdown.MarkdownResourceGenerator;
+import de.mobanisto.gartendaten.pages.other.GemueseGenerator;
 import de.mobanisto.gartendaten.pages.other.IndexGenerator;
 import de.topobyte.jsoup.ContentGeneratable;
 import de.topobyte.webgun.resolving.pathspec.PathSpec;
@@ -24,7 +25,7 @@ public class MainPathResolver extends PathSpecResolver<ContentGeneratable, Void>
 
 	{
 		map(new PathSpec("gemüse"), (path, output, request, data) -> {
-			return new IndexGenerator(path);
+			return new GemueseGenerator(path);
 		});
 		map(new PathSpec("kompost"), (path, output, request, data) -> {
 			return new IndexGenerator(path);

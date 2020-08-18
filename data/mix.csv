@@ -15,7 +15,7 @@ Buschbohnen,Kartoffeln,gut
 Buschbohnen,Kohle,gut
 Buschbohnen,Radieschen,gut
 Buschbohnen,Rettich,gut
-Buschbohnen,Rote Beete,gut
+Buschbohnen,Rote Bete,gut
 Buschbohnen,Sellerie,gut
 Buschbohnen,Tomaten,gut
 Buschbohnen,Fenchel,schlecht
@@ -67,7 +67,7 @@ Wirsing,Buschbohnen,gut
 Wirsing,Erbsen,gut
 Wirsing,Gurken,gut
 Wirsing,Möhren,gut
-Wirsing,Rote Beete,gut
+Wirsing,Rote Bete,gut
 Wirsing,Salat,gut
 Wirsing,Sellerie,gut
 Wirsing,Spinat,gut
@@ -80,7 +80,7 @@ Rosenkohl,Buschbohnen,gut
 Rosenkohl,Erbsen,gut
 Rosenkohl,Gurken,gut
 Rosenkohl,Möhren,gut
-Rosenkohl,Rote Beete,gut
+Rosenkohl,Rote Bete,gut
 Rosenkohl,Salat,gut
 Rosenkohl,Sellerie,gut
 Rosenkohl,Spinat,gut
@@ -96,7 +96,7 @@ Salat,Gurken,gut
 Salat,Kohlrabi,gut
 Salat,Radieschen,gut
 Salat,Rettich,gut
-Salat,Rote Beete,gut
+Salat,Rote Bete,gut
 Salat,Spinat,gut
 Salat,Tomaten,gut
 Salat,Kresse,schlecht
@@ -138,11 +138,11 @@ Radieschen,Kresse,gut
 Radieschen,Salat,gut
 Radieschen,Tomaten,gut
 Radieschen,Gurken,schlecht
-Rote Beete,Bohnen,gut
-Rote Beete,Bohnenkraut,gut
-Rote Beete,Dill,gut
-Rote Beete,Zwiebeln,gut
-Rote Beete,Spinat,schlecht
+Rote Bete,Bohnen,gut
+Rote Bete,Bohnenkraut,gut
+Rote Bete,Dill,gut
+Rote Bete,Zwiebeln,gut
+Rote Bete,Spinat,schlecht
 Sellerie,Bohnen,gut
 Sellerie,Erbsen,gut
 Sellerie,Kohle,gut
@@ -158,10 +158,10 @@ Spinat,Radieschen,schlecht
 Spinat,Rettich,schlecht
 Spinat,Salat,schlecht
 Spinat,Sellerie,schlecht
-Spinat,Rote Beete,schlecht
+Spinat,Rote Bete,schlecht
 Spinat,Spinat,schlecht
 Stangenbohnen,Gurken,gut
-Stangenbohnen,Rote Beete,gut
+Stangenbohnen,Rote Bete,gut
 Stangenbohnen,Salat,gut
 Stangenbohnen,Sellerie,gut
 Stangenbohnen,Spinat,gut
@@ -182,7 +182,7 @@ Tomaten,Zwiebeln,gut
 Tomaten,Rotkohl,schlecht
 Tomaten,Erbsen,schlecht
 Tomaten,Fenchel,schlecht
-Tomaten,Rote Beete,schlecht
+Tomaten,Rote Bete,schlecht
 Zucchini,Basilikum,gut
 Zucchini,Bohnen,gut
 Zucchini,Zwiebeln,gut

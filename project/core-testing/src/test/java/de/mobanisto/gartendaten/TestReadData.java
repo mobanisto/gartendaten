@@ -11,12 +11,14 @@ public class TestReadData
 
 	public static void main(String[] args) throws IOException
 	{
-		Path file = SystemPaths.CWD.resolve("../../data/wikidata.csv");
+		Path fileWikidata = SystemPaths.CWD.resolve("../../data/wikidata.csv");
+		Path fileMix = SystemPaths.CWD.resolve("../../data/mix.csv");
 
 		Data data = new Data();
 
 		LoadData task = new LoadData();
-		task.loadWikidata(file, data);
+		task.loadWikidata(fileWikidata, data);
+		task.loadMix(fileMix, data);
 
 		System.out.println("# Plants");
 		for (Plant plant : data.getPlants().values()) {

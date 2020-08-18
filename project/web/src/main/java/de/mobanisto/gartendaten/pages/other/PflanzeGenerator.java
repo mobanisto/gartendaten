@@ -1,11 +1,20 @@
 package de.mobanisto.gartendaten.pages.other;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
 import de.mobanisto.gartendaten.Data;
+import de.mobanisto.gartendaten.Fit;
 import de.mobanisto.gartendaten.PageNotFoundException;
 import de.mobanisto.gartendaten.Plant;
+import de.mobanisto.gartendaten.ThingByNameComparator;
 import de.mobanisto.gartendaten.Website;
 import de.mobanisto.gartendaten.pages.base.SimpleBaseGenerator;
 import de.topobyte.jsoup.HTML;
+import de.topobyte.jsoup.components.Table;
+import de.topobyte.jsoup.components.TableRow;
 import de.topobyte.webpaths.WebPath;
 
 public class PflanzeGenerator extends SimpleBaseGenerator
@@ -36,6 +45,27 @@ public class PflanzeGenerator extends SimpleBaseGenerator
 					String.format("https://www.wikidata.org/wiki/Q%d",
 							wikidata),
 					String.format("Wikidata item Q%d", wikidata)));
+		}
+
+		Map<Plant, Fit> fits = data.getMix().row(plant);
+
+		content.ac(HTML.h2("Nachbarschaften"));
+
+		if (fits.isEmpty()) {
+			content.ac(HTML.p()).appendText("Nichts bekannt");
+		} else {
+			Table table = content.ac(HTML.table());
+			table.addClass("table");
+
+			List<Plant> others = new ArrayList<>(fits.keySet());
+			Collections.sort(others, new ThingByNameComparator());
+
+			for (Plant other : others) {
+				TableRow row = table.row();
+				row.cell(other.getName());
+				Fit fit = fits.get(other);
+				row.cell(fit == Fit.BAD ? "schlecht" : "gut");
+			}
 		}
 	}
 

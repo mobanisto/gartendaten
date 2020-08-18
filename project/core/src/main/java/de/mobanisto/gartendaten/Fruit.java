@@ -1,9 +1,9 @@
 package de.mobanisto.gartendaten;
 
-public class Plant extends Thing
+public class Fruit extends Thing
 {
 
-	public Plant(String name)
+	public Fruit(String name)
 	{
 		super(name);
 	}

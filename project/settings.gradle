@@ -1,0 +1,5 @@
+include 'core', 'core-testing', 'cli', 'web'
+project(':core').name = 'gartendaten-core'
+project(':core-testing').name = 'gartendaten-core-testing'
+project(':cli').name = 'gartendaten-cli'
+project(':web').name = 'gartendaten-web'

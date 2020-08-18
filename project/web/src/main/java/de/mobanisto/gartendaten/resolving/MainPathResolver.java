@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import de.mobanisto.gartendaten.pages.markdown.MarkdownResourceGenerator;
 import de.mobanisto.gartendaten.pages.other.GemueseGenerator;
 import de.mobanisto.gartendaten.pages.other.IndexGenerator;
+import de.mobanisto.gartendaten.pages.other.KompostGenerator;
 import de.mobanisto.gartendaten.pages.other.PflanzeGenerator;
 import de.topobyte.jsoup.ContentGeneratable;
 import de.topobyte.webgun.resolving.pathspec.PathSpec;
@@ -29,7 +30,7 @@ public class MainPathResolver extends PathSpecResolver<ContentGeneratable, Void>
 			return new GemueseGenerator(path);
 		});
 		map(new PathSpec("kompost"), (path, output, request, data) -> {
-			return new IndexGenerator(path);
+			return new KompostGenerator(path);
 		});
 		map(new PathSpec("pflanze", ":name:"),
 				(path, output, request, data) -> {

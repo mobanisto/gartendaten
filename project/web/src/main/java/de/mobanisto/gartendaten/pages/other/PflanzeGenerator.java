@@ -13,6 +13,7 @@ import de.mobanisto.gartendaten.ThingByNameComparator;
 import de.mobanisto.gartendaten.Website;
 import de.mobanisto.gartendaten.pages.base.SimpleBaseGenerator;
 import de.topobyte.jsoup.HTML;
+import de.topobyte.jsoup.components.A;
 import de.topobyte.jsoup.components.Table;
 import de.topobyte.jsoup.components.TableRow;
 import de.topobyte.webpaths.WebPath;
@@ -62,7 +63,8 @@ public class PflanzeGenerator extends SimpleBaseGenerator
 
 			for (Plant other : others) {
 				TableRow row = table.row();
-				row.cell(other.getName());
+				A link = HTML.a("/pflanze/" + other.getName(), other.getName());
+				row.cell(link);
 				Fit fit = fits.get(other);
 				row.cell(fit == Fit.BAD ? "schlecht" : "gut");
 			}

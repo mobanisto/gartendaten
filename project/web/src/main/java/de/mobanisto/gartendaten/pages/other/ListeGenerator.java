@@ -3,6 +3,7 @@ package de.mobanisto.gartendaten.pages.other;
 import static de.mobanisto.gartendaten.Fit.GOOD;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -10,10 +11,8 @@ import java.util.Set;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
-import com.google.common.collect.Table;
 
 import de.mobanisto.gartendaten.Data;
-import de.mobanisto.gartendaten.Fit;
 import de.mobanisto.gartendaten.Plant;
 import de.mobanisto.gartendaten.Website;
 import de.mobanisto.gartendaten.pages.base.SimpleBaseGenerator;
@@ -70,33 +69,61 @@ public class ListeGenerator extends SimpleBaseGenerator
 
 	private void group(List<Plant> plants)
 	{
-		int n = plants.size();
+		Set<Set<Plant>> groups = new HashSet<>();
+		for (Plant plant : plants) {
+			Set<Plant> group = new HashSet<>();
+			group.add(plant);
+			groups.add(group);
+		}
 
-		List<List<Plant>> three = new ArrayList<>();
-		for (int i = 0; i < n; i++) {
-			for (int j = i; j < n; j++) {
-				for (int k = j; k < n; k++) {
-					if (check(plants, i, j, k)) {
-						three.add(set(plants, i, j, k));
+		Map<Integer, Set<Set<Plant>>> sizeToGroups = new HashMap<>();
+		int groupSize = 1;
+		while (true) {
+			groupSize += 1;
+			Set<Set<Plant>> newGroups = new HashSet<>();
+			for (Set<Plant> group : groups) {
+				for (Plant plant : plants) {
+					if (group.contains(plant)) {
+						continue;
+					}
+					boolean allGood = true;
+					for (Plant in : group) {
+						if (data.getMix().get(plant, in) != GOOD) {
+							allGood = false;
+							break;
+						}
+					}
+					if (allGood) {
+						newGroups.add(extend(group, plant));
 					}
 				}
 			}
+			groups = newGroups;
+			System.out.println("size: " + groups.size());
+			if (groups.isEmpty()) {
+				break;
+			}
+			sizeToGroups.put(groupSize, groups);
 		}
 
 		Set<Plant> got = new HashSet<>();
 
-		content.ac(HTML.h2("Dreiergruppen")).addClass("mt-3");
-		ListGroupDiv list = content.ac(Bootstrap.listGroupDiv());
-		for (List<Plant> group : three) {
-			list.addTextItem(Joiner.on(", ")
-					.join(Iterables.transform(group, Plant::getName)));
-			for (Plant plant : group) {
-				got.add(plant);
+		int maxGroupSize = groupSize - 1;
+		for (int i = maxGroupSize; i >= 2; i--) {
+			content.ac(HTML.h2("Gruppen der Größe " + i)).addClass("mt-3");
+			ListGroupDiv list = content.ac(Bootstrap.listGroupDiv());
+			Set<Set<Plant>> grps = sizeToGroups.get(i);
+			for (Set<Plant> group : grps) {
+				list.addTextItem(Joiner.on(", ")
+						.join(Iterables.transform(group, Plant::getName)));
+				for (Plant plant : group) {
+					got.add(plant);
+				}
 			}
 		}
 
 		content.ac(HTML.h2("Übrig")).addClass("mt-3");
-		list = content.ac(Bootstrap.listGroupDiv());
+		ListGroupDiv list = content.ac(Bootstrap.listGroupDiv());
 		for (Plant plant : plants) {
 			if (got.contains(plant)) {
 				continue;
@@ -105,28 +132,11 @@ public class ListeGenerator extends SimpleBaseGenerator
 		}
 	}
 
-	private List<Plant> set(List<Plant> plants, int i, int j, int k)
+	private Set<Plant> extend(Set<Plant> group, Plant plant)
 	{
-		List<Plant> selected = new ArrayList<>();
-		selected.add(plants.get(i));
-		selected.add(plants.get(j));
-		selected.add(plants.get(k));
-		return selected;
-	}
-
-	private boolean check(List<Plant> plants, int i, int j, int k)
-	{
-		Plant pi = plants.get(i);
-		Plant pj = plants.get(j);
-		Plant pk = plants.get(k);
-		Table<Plant, Plant, Fit> mix = data.getMix();
-		Fit fit1 = mix.get(pi, pj);
-		Fit fit2 = mix.get(pi, pk);
-		Fit fit3 = mix.get(pj, pk);
-		if (fit1 == GOOD && fit2 == GOOD && fit3 == GOOD) {
-			return true;
-		}
-		return false;
+		Set<Plant> result = new HashSet<>(group);
+		result.add(plant);
+		return result;
 	}
 
 }

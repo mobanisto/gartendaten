@@ -16,6 +16,7 @@ import de.mobanisto.gartendaten.resolving.MainPathResolver;
 import de.mobanisto.gartendaten.util.ServletUtil;
 import de.topobyte.jsoup.ContentGeneratable;
 import de.topobyte.jsoup.JsoupServletUtil;
+import de.topobyte.webgun.exceptions.PageNotFoundException;
 import de.topobyte.webgun.resolving.PathResolver;
 import de.topobyte.webgun.resolving.Redirecter;
 import de.topobyte.webpaths.WebPath;

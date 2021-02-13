@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.jsoup.nodes.Element;
 
 import de.mobanisto.gartendaten.CacheBuster;
-import de.mobanisto.gartendaten.PageNotFoundException;
 import de.mobanisto.gartendaten.Website;
 import de.mobanisto.gartendaten.widgets.MainFooter;
 import de.mobanisto.gartendaten.widgets.MainMenu;
@@ -14,6 +13,7 @@ import de.topobyte.jsoup.FaviconUtil;
 import de.topobyte.jsoup.bootstrap4.components.Menu;
 import de.topobyte.jsoup.components.Head;
 import de.topobyte.pagegen.bootstrap.Bootstrap4Generator;
+import de.topobyte.webgun.exceptions.PageNotFoundException;
 import de.topobyte.webpaths.WebPath;
 
 public class BaseGenerator extends Bootstrap4Generator

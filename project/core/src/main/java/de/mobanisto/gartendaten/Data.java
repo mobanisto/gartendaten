@@ -1,6 +1,7 @@
 package de.mobanisto.gartendaten;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.common.collect.HashBasedTable;
@@ -18,5 +19,8 @@ public class Data
 
 	@Getter
 	private Table<Plant, Plant, Fit> mix = HashBasedTable.create();
+
+	@Getter
+	private Map<String, List<String>> names = new HashMap<>();
 
 }

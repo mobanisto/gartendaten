@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -112,6 +114,33 @@ public class LoadData
 			return Fit.BAD;
 		}
 		return null;
+	}
+
+	public List<String> loadListe(Path path) throws IOException
+	{
+		try (BufferedReader reader = Files.newBufferedReader(path)) {
+			return loadListe(reader);
+		}
+	}
+
+	public List<String> loadListe(Reader r) throws IOException
+	{
+		try (BufferedReader reader = new BufferedReader(r)) {
+			return loadListe(reader);
+		}
+	}
+
+	public List<String> loadListe(BufferedReader reader) throws IOException
+	{
+		List<String> names = new ArrayList<>();
+		while (true) {
+			String line = reader.readLine();
+			if (line == null) {
+				break;
+			}
+			names.add(line);
+		}
+		return names;
 	}
 
 }

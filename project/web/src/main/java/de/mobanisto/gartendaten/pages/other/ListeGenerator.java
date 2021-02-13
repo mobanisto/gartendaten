@@ -80,8 +80,10 @@ public class ListeGenerator extends SimpleBaseGenerator
 		int groupSize = 1;
 		while (true) {
 			groupSize += 1;
+			Set<Set<Plant>> removedGroups = new HashSet<>();
 			Set<Set<Plant>> newGroups = new HashSet<>();
 			for (Set<Plant> group : groups) {
+				boolean extended = false;
 				for (Plant plant : plants) {
 					if (group.contains(plant)) {
 						continue;
@@ -95,11 +97,15 @@ public class ListeGenerator extends SimpleBaseGenerator
 					}
 					if (allGood) {
 						newGroups.add(extend(group, plant));
+						extended = true;
 					}
 				}
+				if (extended) {
+					removedGroups.add(group);
+				}
 			}
+			groups.removeAll(removedGroups);
 			groups = newGroups;
-			System.out.println("size: " + groups.size());
 			if (groups.isEmpty()) {
 				break;
 			}

@@ -7,12 +7,14 @@ import de.mobanisto.gartendaten.PathHelper;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.bootstrap4.Bootstrap;
 import de.topobyte.jsoup.components.A;
+import de.topobyte.jsoup.components.Div;
+import de.topobyte.jsoup.components.P;
 import de.topobyte.jsoup.components.UnorderedList;
 import de.topobyte.jsoup.feather.Feather;
 import de.topobyte.jsoup.nodes.Element;
 import de.topobyte.pagegen.core.LinkResolver;
 
-public class MainFooter extends Element
+public class MainFooter extends Element<MainFooter>
 {
 
 	public MainFooter(LinkResolver resolver)
@@ -20,7 +22,7 @@ public class MainFooter extends Element
 		super("footer");
 		attr("class", "footer");
 
-		Element div = ac(Bootstrap.container());
+		Div div = ac(Bootstrap.container());
 
 		UnorderedList links = div.ac(HTML.ul());
 
@@ -32,10 +34,10 @@ public class MainFooter extends Element
 		A linkPrivacy = a(privacyLink, "Datenschutz");
 		links.addItem(linkPrivacy);
 
-		Element p = div.ac(p().addClass("text-muted"));
+		P p = div.ac(p().addClass("text-muted"));
 
 		p.appendText("Made with ");
-		p.ac(Feather.heart(16));
+		p.ac(Feather.heart("16"));
 		p.appendText(" in Berlin");
 	}
 

@@ -7,6 +7,7 @@ import de.mobanisto.gartendaten.pages.other.AboutGenerator;
 import de.mobanisto.gartendaten.pages.other.GemueseGenerator;
 import de.mobanisto.gartendaten.pages.other.IndexGenerator;
 import de.mobanisto.gartendaten.pages.other.KompostGenerator;
+import de.mobanisto.gartendaten.pages.other.ListeGenerator;
 import de.mobanisto.gartendaten.pages.other.PflanzeGenerator;
 import de.topobyte.jsoup.ContentGeneratable;
 import de.topobyte.webgun.resolving.pathspec.PathSpec;
@@ -38,6 +39,10 @@ public class MainPathResolver extends PathSpecResolver<ContentGeneratable, Void>
 					String name = output.getParameter("name");
 					return new PflanzeGenerator(path, name);
 				});
+		map(new PathSpec("liste", ":name:"), (path, output, request, data) -> {
+			String name = output.getParameter("name");
+			return new ListeGenerator(path, name);
+		});
 
 		map(new PathSpec("about"), (path, output, request, data) -> {
 			return new AboutGenerator(path);

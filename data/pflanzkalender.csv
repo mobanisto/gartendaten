@@ -1,7 +1,6 @@
-Alle Kulturen,Vorkultur,,Direktsaat,,Pflanzung,
-,von,bis,von,bis,von,bis
+Pflanze,Vorkultur von,Vorkultur bis,Direktsaat von,Direktsaat bis,Pflanzung von,Pflanzung bis
 Asia-Salat,,,15.02,30.04,,
-,,,01.09,15.10,,
+Asia-Salat,,,01.09,15.10,,
 Aubergine,01.02,01.03,,,15.05,01.06
 Baldrian,,,,,,
 Basilikum,,,,,,
@@ -51,7 +50,7 @@ Schnittlauch,,,,,,
 Sellerie,,,,,,
 Spargelsalat,,,15.03,15.07,,
 Spinat,,,15.02,15.04,,
-,,,01.07,30.09,,
+Spinat,,,01.07,30.09,,
 Stangenbohnen,,,,,,
 Tomaten,15.02,15.03,,,30.05,
 Waldmeister,,,,,,

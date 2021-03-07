@@ -18,4 +18,12 @@ public class PflanzInterval
 		this.end = end;
 	}
 
+	@Override
+	public String toString()
+	{
+		return String.format("%d.%d - %d.%d", start.getDayOfMonth(),
+				start.getMonthValue(), end.getDayOfMonth(),
+				end.getMonthValue());
+	}
+
 }

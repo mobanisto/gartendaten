@@ -246,7 +246,9 @@ public class LoadData
 			String pflanze = map.get(keyGemuese);
 			Licht licht = licht(map.get(keyLicht));
 			String kommentar = map.get(keyKommentar);
-			data.getLicht().put(pflanze, licht);
+			if (licht != null) {
+				data.getLicht().put(pflanze, licht);
+			}
 			if (kommentar != null && !kommentar.isEmpty()) {
 				data.getLichtKommentar().put(pflanze, kommentar);
 			}

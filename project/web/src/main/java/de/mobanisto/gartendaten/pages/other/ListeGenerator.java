@@ -3,6 +3,7 @@ package de.mobanisto.gartendaten.pages.other;
 import static de.mobanisto.gartendaten.Fit.GOOD;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -13,6 +14,8 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
 
 import de.mobanisto.gartendaten.Data;
+import de.mobanisto.gartendaten.Licht;
+import de.mobanisto.gartendaten.PflanzInterval;
 import de.mobanisto.gartendaten.Plant;
 import de.mobanisto.gartendaten.Website;
 import de.mobanisto.gartendaten.pages.base.SimpleBaseGenerator;
@@ -21,6 +24,7 @@ import de.topobyte.jsoup.bootstrap4.Bootstrap;
 import de.topobyte.jsoup.bootstrap4.components.ContextualType;
 import de.topobyte.jsoup.bootstrap4.components.ListGroupDiv;
 import de.topobyte.jsoup.bootstrap4.components.listgroup.ListGroupA;
+import de.topobyte.jsoup.bootstrap4.components.listgroup.ListGroupItem;
 import de.topobyte.webgun.exceptions.PageNotFoundException;
 import de.topobyte.webpaths.WebPath;
 
@@ -120,8 +124,14 @@ public class ListeGenerator extends SimpleBaseGenerator
 			ListGroupDiv list = content.ac(Bootstrap.listGroupDiv());
 			Set<Set<Plant>> grps = sizeToGroups.get(i);
 			for (Set<Plant> group : grps) {
-				list.addTextItem(Joiner.on(", ")
+				ListGroupItem item = list.addTextItem(Joiner.on(", ")
 						.join(Iterables.transform(group, Plant::getName)));
+				item.ap(HTML.br()).appendText(Joiner.on(", ")
+						.join(Iterables.transform(group, this::getLicht)));
+				item.ap(HTML.br()).appendText(Joiner.on(", ")
+						.join(Iterables.transform(group, this::getVorzucht)));
+				item.ap(HTML.br()).appendText(Joiner.on(", ")
+						.join(Iterables.transform(group, this::getDirektsaat)));
 				for (Plant plant : group) {
 					got.add(plant);
 				}
@@ -136,6 +146,35 @@ public class ListeGenerator extends SimpleBaseGenerator
 			}
 			list.addTextItem(plant.getName());
 		}
+	}
+
+	private String getLicht(Plant plant)
+	{
+		Collection<Licht> values = data.getLicht().get(plant.getName());
+		if (values.isEmpty()) {
+			return "-";
+		}
+		return Joiner.on("/").join(values);
+	}
+
+	private String getVorzucht(Plant plant)
+	{
+		Collection<PflanzInterval> values = data.getVorzucht()
+				.get(plant.getName());
+		if (values.isEmpty()) {
+			return "-";
+		}
+		return Joiner.on("/").join(values);
+	}
+
+	private String getDirektsaat(Plant plant)
+	{
+		Collection<PflanzInterval> values = data.getDirektsaat()
+				.get(plant.getName());
+		if (values.isEmpty()) {
+			return "-";
+		}
+		return Joiner.on("/").join(values);
 	}
 
 	private Set<Plant> extend(Set<Plant> group, Plant plant)

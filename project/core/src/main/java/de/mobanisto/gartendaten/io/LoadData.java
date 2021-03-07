@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.MonthDay;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,7 @@ import de.mobanisto.gartendaten.Data;
 import de.mobanisto.gartendaten.DataUtil;
 import de.mobanisto.gartendaten.Fit;
 import de.mobanisto.gartendaten.Fruit;
+import de.mobanisto.gartendaten.PflanzInterval;
 import de.mobanisto.gartendaten.Plant;
 
 public class LoadData
@@ -141,6 +143,83 @@ public class LoadData
 			names.add(line);
 		}
 		return names;
+	}
+
+	private static final String keyPflanze = "Pflanze";
+	private static final String keyVorkulturVon = "Vorkultur von";
+	private static final String keyVorkulturBis = "Vorkultur bis";
+	private static final String keyDirektsaatVon = "Direktsaat von";
+	private static final String keyDirektsaatBis = "Direktsaat bis";
+	private static final String keyPflanzungVon = "Pflanzung von";
+	private static final String keyPflanzungBis = "Pflanzung bis";
+
+	public void loadDates(Path path, Data data) throws IOException
+	{
+		try (BufferedReader reader = Files.newBufferedReader(path)) {
+			loadDates(reader, data);
+		}
+	}
+
+	public void loadDates(Reader reader, Data data) throws IOException
+	{
+		ICsvMapReader csvReader = new CsvMapReader(reader,
+				CsvPreference.EXCEL_PREFERENCE);
+
+		final String[] header = csvReader.getHeader(true);
+
+		Map<String, String> map;
+		while ((map = csvReader.read(header)) != null) {
+			String pflanze = map.get(keyPflanze);
+			PflanzInterval vorkultur = interval(map, keyVorkulturVon,
+					keyVorkulturBis);
+			PflanzInterval direktsaat = interval(map, keyDirektsaatVon,
+					keyDirektsaatBis);
+			PflanzInterval pflanzung = interval(map, keyPflanzungVon,
+					keyPflanzungBis);
+
+			if (vorkultur != null) {
+				data.getVorzucht().put(pflanze, vorkultur);
+			}
+			if (direktsaat != null) {
+				data.getDirektsaat().put(pflanze, direktsaat);
+			}
+			if (pflanzung != null) {
+				data.getPflanzung().put(pflanze, pflanzung);
+			}
+		}
+
+		csvReader.close();
+	}
+
+	private PflanzInterval interval(Map<String, String> map, String keyVon,
+			String keyBis)
+	{
+		MonthDay von = date(map.get(keyVon));
+		MonthDay bis = date(map.get(keyBis));
+		if (von == null || bis == null) {
+			return null;
+		}
+		return new PflanzInterval(von, bis);
+	}
+
+	private Pattern patternDate = Pattern.compile("([0-9]{2,2}).([0-9]{2,2})");
+
+	private MonthDay date(String string)
+	{
+		string = Util.trim(string);
+		if (string == null || string.isEmpty()) {
+			return null;
+		}
+		Matcher matcher = patternDate.matcher(string);
+		if (!matcher.matches()) {
+			System.out.println("Warn: unmachted date " + string);
+			return null;
+		}
+
+		int day = Integer.parseInt(matcher.group(1));
+		int month = Integer.parseInt(matcher.group(2));
+
+		return MonthDay.of(month, day);
 	}
 
 }

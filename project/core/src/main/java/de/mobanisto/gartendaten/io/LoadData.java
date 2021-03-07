@@ -20,6 +20,7 @@ import de.mobanisto.gartendaten.Data;
 import de.mobanisto.gartendaten.DataUtil;
 import de.mobanisto.gartendaten.Fit;
 import de.mobanisto.gartendaten.Fruit;
+import de.mobanisto.gartendaten.Licht;
 import de.mobanisto.gartendaten.PflanzInterval;
 import de.mobanisto.gartendaten.Plant;
 
@@ -220,6 +221,53 @@ public class LoadData
 		int month = Integer.parseInt(matcher.group(2));
 
 		return MonthDay.of(month, day);
+	}
+
+	private static final String keyGemuese = "Gemüse";
+	private static final String keyLicht = "Licht";
+	private static final String keyKommentar = "Kommentar";
+
+	public void loadLicht(Path path, Data data) throws IOException
+	{
+		try (BufferedReader reader = Files.newBufferedReader(path)) {
+			loadLicht(reader, data);
+		}
+	}
+
+	public void loadLicht(Reader reader, Data data) throws IOException
+	{
+		ICsvMapReader csvReader = new CsvMapReader(reader,
+				CsvPreference.EXCEL_PREFERENCE);
+
+		final String[] header = csvReader.getHeader(true);
+
+		Map<String, String> map;
+		while ((map = csvReader.read(header)) != null) {
+			String pflanze = map.get(keyGemuese);
+			Licht licht = licht(map.get(keyLicht));
+			String kommentar = map.get(keyKommentar);
+			data.getLicht().put(pflanze, licht);
+			if (kommentar != null && !kommentar.isEmpty()) {
+				data.getLichtKommentar().put(pflanze, kommentar);
+			}
+		}
+
+		csvReader.close();
+	}
+
+	private Licht licht(String licht)
+	{
+		if (licht == null) {
+			return null;
+		}
+		if (licht.equals("Sonne")) {
+			return Licht.SONNE;
+		} else if (licht.equals("Halbschatten")) {
+			return Licht.HALBSCHATTEN;
+		} else if (licht.equals("Schatten")) {
+			return Licht.SCHATTEN;
+		}
+		return null;
 	}
 
 }

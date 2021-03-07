@@ -32,4 +32,9 @@ public class Data
 	@Getter
 	private Multimap<String, PflanzInterval> pflanzung = HashMultimap.create();
 
+	@Getter
+	private Multimap<String, Licht> licht = HashMultimap.create();
+	@Getter
+	private Map<String, String> lichtKommentar = new HashMap<>();
+
 }

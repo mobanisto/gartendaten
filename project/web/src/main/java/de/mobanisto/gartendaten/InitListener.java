@@ -80,6 +80,9 @@ public class InitListener implements ServletContextListener
 				data);
 		loader.loadDates(new InputStreamReader(
 				Resources.stream("data/pflanzkalender.csv")), data);
+		loader.loadLicht(
+				new InputStreamReader(Resources.stream("data/licht.csv")),
+				data);
 		data.getNames().put("2021", loader.loadListe(
 				new InputStreamReader(Resources.stream("data/2021/liste"))));
 	}

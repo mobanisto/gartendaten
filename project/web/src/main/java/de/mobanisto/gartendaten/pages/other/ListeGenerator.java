@@ -94,7 +94,7 @@ public class ListeGenerator extends SimpleBaseGenerator
 					}
 					boolean allGood = true;
 					for (Plant in : group) {
-						if (data.getMix().get(plant, in) != GOOD) {
+						if (!match(plant, in)) {
 							allGood = false;
 							break;
 						}
@@ -146,6 +146,33 @@ public class ListeGenerator extends SimpleBaseGenerator
 			}
 			list.addTextItem(plant.getName());
 		}
+	}
+
+	private boolean match(Plant a, Plant b)
+	{
+		if (data.getMix().get(a, b) != GOOD) {
+			return false;
+		}
+		boolean lichtMatch = false;
+		Collection<Licht> lichtA = data.getLicht().get(a.getName());
+		Collection<Licht> lichtB = data.getLicht().get(b.getName());
+		outer: for (Licht lA : lichtA) {
+			for (Licht lB : lichtB) {
+				if (match(lA, lB)) {
+					lichtMatch = true;
+					break outer;
+				}
+			}
+		}
+		return lichtMatch;
+	}
+
+	private boolean match(Licht lA, Licht lB)
+	{
+		if (lA == lB) {
+			return true;
+		}
+		return false;
 	}
 
 	private String getLicht(Plant plant)

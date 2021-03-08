@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.common.base.CaseFormat;
+import com.google.common.base.Converter;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
 
@@ -188,7 +190,10 @@ public class ListeGenerator extends SimpleBaseGenerator
 		if (values.isEmpty()) {
 			return "-";
 		}
-		return Joiner.on("/").join(values);
+		Converter<String, String> converter = CaseFormat.UPPER_UNDERSCORE
+				.converterTo(CaseFormat.UPPER_CAMEL);
+		return Joiner.on("/").join(
+				Iterables.transform(values, l -> converter.convert(l.name())));
 	}
 
 	private String getVorzucht(Plant plant)

@@ -135,11 +135,11 @@ public class ListeGenerator extends SimpleBaseGenerator
 			for (Set<Plant> group : grps) {
 				ListGroupItem item = list.addTextItem(Joiner.on(", ")
 						.join(Iterables.transform(group, Plant::getName)));
-				item.ap(HTML.br()).appendText(Joiner.on(", ")
+				item.ap(HTML.br()).at(Joiner.on(", ")
 						.join(Iterables.transform(group, this::getLicht)));
-				item.ap(HTML.br()).appendText(Joiner.on(", ")
+				item.ap(HTML.br()).at("Vorzucht: ").at(Joiner.on(", ")
 						.join(Iterables.transform(group, this::getVorzucht)));
-				item.ap(HTML.br()).appendText(Joiner.on(", ")
+				item.ap(HTML.br()).at("Direktsaat: ").at(Joiner.on(", ")
 						.join(Iterables.transform(group, this::getDirektsaat)));
 				for (Plant plant : group) {
 					got.add(plant);

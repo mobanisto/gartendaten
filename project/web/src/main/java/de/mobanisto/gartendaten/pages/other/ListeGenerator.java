@@ -68,10 +68,14 @@ public class ListeGenerator extends SimpleBaseGenerator
 			}
 		}
 
-		group(plants);
+		buildGroups(plants);
+		display(plants);
 	}
 
-	private void group(List<Plant> plants)
+	private Map<Integer, Set<Set<Plant>>> sizeToGroups = new HashMap<>();
+	private int maxGroupSize;
+
+	private void buildGroups(List<Plant> plants)
 	{
 		Set<Set<Plant>> groups = new HashSet<>();
 		for (Plant plant : plants) {
@@ -80,7 +84,6 @@ public class ListeGenerator extends SimpleBaseGenerator
 			groups.add(group);
 		}
 
-		Map<Integer, Set<Set<Plant>>> sizeToGroups = new HashMap<>();
 		int groupSize = 1;
 		while (true) {
 			groupSize += 1;
@@ -116,9 +119,13 @@ public class ListeGenerator extends SimpleBaseGenerator
 			sizeToGroups.put(groupSize, groups);
 		}
 
+		maxGroupSize = groupSize - 1;
+	}
+
+	private void display(List<Plant> plants)
+	{
 		Set<Plant> got = new HashSet<>();
 
-		int maxGroupSize = groupSize - 1;
 		for (int i = maxGroupSize; i >= 2; i--) {
 			content.ac(HTML.h2("Gruppen der Größe " + i)).addClass("mt-3");
 			ListGroupDiv list = content.ac(Bootstrap.listGroupDiv());

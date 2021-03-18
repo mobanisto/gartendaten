@@ -1,61 +1,61 @@
-﻿Alle Kulturen;Vorkultur;;Direktsaat;;Pflanzung;
-;von;bis;von;bis;von;bis
-Asia-Salat;;;15. Feb;30. Apr;;
-;;;01. Sep;15. Okt;;
-Aubergine;01. Feb;01. Mrz;;;15. Mai;01. Jun
-Baldrian;;;;;;
-Basilikum;;;;;15. Mrz;
-Blumenkohl;15. Feb;15. Mrz;;;15. Mrz;31. Mai
-Bohnenkraut;;;;;;
-Borretsch;;;01. Apr;30. Mai;;
-Brokkoli;01. Mrz;01. Jun;;;31. Ap;31. Jul
-Brunnenkresse;;;;;;
-Buschbohnen;01. Apr;;01. Mai;15. Jun;;
-Chili;15. Feb;01. Mrz;15. Mai;01. Jun;;
-Dill;;;;;;
-Endivie;;;;;;
-Erbsen;;;15. Mrz;01. Jun;;
-Erdbeeren;;;;;;
-Fenchel;;;01. Apr;30. Mai;;
-Feuerbohnen;;;;;;
-Grünkohl;01. Mai;15. Jun;kein;keine;01. Jun;30. Jul
-Gurken;01. Apr;15. Mai;15. Mai;30. Mai;15. Mai;30. Mai
-Herbstrübe;;;01. Aug;30. Aug;;
-Kartoffeln;;15. Mrz;15. Apr;31. Mai;;
-Kerbel;;;;;;
-Knoblauch;keine;keine;01. Feb;30. Mrz;;
-Kohlrabi;15. Feb;30. Jul;;;15. Mrz;15. Aug
-Koriander;;;;;;
-Kürbis;01. Apr;01. Mai;15. Mai;15. Jun;;
-Lauch (Berg-Lauch);01. Feb;15. Mai;30. Mrz;15. Jun;;
-Liebstöckl;;;;;;
-Mairübe;;;01. Mrz;30. Apr;;
-Mangold;01. Mrz;31. Mrz;15. Apr;15. Aug;01. Jun;15. Aug
-Minze;;;;;;
-Möhren;;;01. Mrz;15. Jul;;
-Oregano;;;;;;
-Paprika;15. Feb;01. Mrz;;;15. Mai;
-Pastinaken;;;15. Mrz;15. Jun;;
-Petersilie;;;;;;
-Pfefferminze;;;;;;
-Puffbohnen;;;;;;
-Radieschen;keine;keine;01. Mrz;30. Aug;;
-Rettich;;;;;;
-Ringelblume;;;01. Mrz;30. Apr;;
-Rosenkohl;;;;;;
-Rote Bete;keine;keine;01. Apr;15. Jun;;
-Rotkohl;;;;;;
-Salat;15. Feb;31. Sep;01. Mrz;31. Sep;15. Mrz;31. Sep
-Salbei;;;;;;
-Schnittlauch;;;;;;
-Sellerie;;;;;;
-Spargelsalat;;;15. Mrz;15. Jul;;
-Spinat;;;15. Feb;15. Apr;;
-Spinat;;;01. Jul;30. Sep;;
-Stangenbohnen;01. Apr;;15. Mai;31. Aug;;
-Tomaten;15. Feb;31. Mrz;;;15. Mai;31. Mai
-Waldmeister;;;;;;
-Wirsing;15. Feb;15. Mai;;;31. Mrz;31. Jul
-Zitronenmelisse;;;;;;
-Zucchini;15. Apr;15. Mai;15. Mai;30. Mai;15. Mai;01. Jun
-Zwiebeln;;;;;;
+Alle Kulturen,Vorkultur,,Direktsaat,,Pflanzung,
+,von,bis,von,bis,von,bis
+Asia-Salat,,,15.02,30.04,,
+,,,01.09,15.10,,
+Aubergine,01.02,01.03,,,15.05,01.06
+Baldrian,,,,,,
+Basilikum,,,,,,
+Blumenkohl,15.02,15.03,,,01.03,01.05
+Bohnenkraut,,,,,,
+Borretsch,,,01.04,30.05,,
+Brokkoli,01.02,01.06,,,,
+Brunnenkresse,,,,,,
+Buschbohnen,,,01.05,15.06,,
+Chili,15.02,30.02,15.05,01.06,,
+Dill,,,,,,
+Endivie,,,,,,
+Erbsen,,,15.03,01.06,,
+Erdbeeren,,,,,,
+Fenchel,,,01.04,30.05,,
+Feuerbohnen,,,,,,
+Grünkohl,,,,,01.06,30.07
+Gurken,01.04,15.05,15.05,30.05,15.05,30.05
+Herbstrübe,,,01.08,30.08,,
+Kartoffeln,,,,,,
+Kerbel,,,,,,
+Knoblauch,,,01.02,30.03,,
+Kohlrabi,15.02,30.07,,,15.03,15.08
+Koriander,,,,,,
+Kürbis,01.04,01.05,15.05,15.06,,
+Lauch (Berg-Lauch),01.02,15.05,30.03,15.06,,
+Liebstöckl,,,,,,
+Mairübe,,,01.03,30.04,,
+Mangold,,,15.04,15.08,,
+Minze,,,,,,
+Möhren,,,01.03,15.07,,
+Oregano,,,,,,
+Paprika,,,,,,
+Pastinaken,,,15.03,15.06,,
+Petersilie,,,,,,
+Pfefferminze,,,,,,
+Puffbohnen,,,,,,
+Radieschen,,,01.03,30.08,,
+Rettich,,,,,,
+Ringelblume,,,01.03,30.04,,
+Rosenkohl,,,,,,
+Rote Bete,,,01.04,15.06,,
+Rotkohl,,,,,,
+Salat,,,,,,
+Salbei,,,,,,
+Schnittlauch,,,,,,
+Sellerie,,,,,,
+Spargelsalat,,,15.03,15.07,,
+Spinat,,,15.02,15.04,,
+,,,01.07,30.09,,
+Stangenbohnen,,,,,,
+Tomaten,15.02,15.03,,,30.05,
+Waldmeister,,,,,,
+Wirsing,,,,,,
+Zitronenmelisse,,,,,,
+Zucchini,15.04,15.05,15.05,30.05,15.05,01.06
+Zwiebeln,,,,,,

@@ -166,6 +166,7 @@ Stangenbohnen,Salat,gut
 Stangenbohnen,Sellerie,gut
 Stangenbohnen,Spinat,gut
 Stangenbohnen,Buschbohnen,schlecht
+Stangenbohnen,Kürbis,gut
 Stangenbohnen,Erbsen,schlecht
 Stangenbohnen,Lauch,schlecht
 Stangenbohnen,Zwiebeln,schlecht
@@ -199,3 +200,10 @@ Zwiebeln,Bohnen,schlecht
 Zwiebeln,Erbsen,schlecht
 Zwiebeln,Kohle,schlecht
 Zwiebeln,Lauch,schlecht
+Mangold,Buschbohnen,gut
+Mangold,Radieschen,gut
+Mangold,Mairüben,gut
+Mangold,Kohl,gut
+Mangold,Möhren,gut
+Kürbis,Stangenbohnen,gut
+Kürbis,Ringelblume,gut

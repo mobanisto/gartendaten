@@ -7,7 +7,6 @@ import java.util.Map;
 
 import de.mobanisto.gartendaten.Data;
 import de.mobanisto.gartendaten.Fit;
-import de.mobanisto.gartendaten.PageNotFoundException;
 import de.mobanisto.gartendaten.Plant;
 import de.mobanisto.gartendaten.ThingByNameComparator;
 import de.mobanisto.gartendaten.Website;
@@ -16,6 +15,7 @@ import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.components.A;
 import de.topobyte.jsoup.components.Table;
 import de.topobyte.jsoup.components.TableRow;
+import de.topobyte.webgun.exceptions.PageNotFoundException;
 import de.topobyte.webpaths.WebPath;
 
 public class PflanzeGenerator extends SimpleBaseGenerator

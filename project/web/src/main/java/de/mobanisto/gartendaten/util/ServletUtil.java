@@ -24,13 +24,13 @@ public class ServletUtil
 	}
 
 	public static void respond404(WebPath output, HttpServletResponse response,
-			Consumer<Element> contentGenerator, Void data) throws IOException
+			Consumer<Element<?>> contentGenerator, Void data) throws IOException
 	{
 		respond(404, output, response, contentGenerator, data);
 	}
 
 	public static void respond(int code, WebPath output,
-			HttpServletResponse response, Consumer<Element> contentGenerator,
+			HttpServletResponse response, Consumer<Element<?>> contentGenerator,
 			Void data) throws IOException
 	{
 		response.setStatus(code);
@@ -41,7 +41,7 @@ public class ServletUtil
 
 		ErrorGenerator generator = new ErrorGenerator(output);
 		generator.generate();
-		Element content = generator.getContent();
+		Element<?> content = generator.getContent();
 
 		contentGenerator.accept(content);
 

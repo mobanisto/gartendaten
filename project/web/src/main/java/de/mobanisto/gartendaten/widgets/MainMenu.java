@@ -8,8 +8,9 @@ import de.topobyte.jsoup.bootstrap4.components.Expand;
 import de.topobyte.jsoup.bootstrap4.components.Menu;
 import de.topobyte.jsoup.bootstrap4.components.MenuBuilder;
 import de.topobyte.jsoup.components.A;
+import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Img;
-import de.topobyte.jsoup.nodes.Element;
+import de.topobyte.jsoup.components.UnorderedList;
 import de.topobyte.pagegen.core.LinkResolver;
 import de.topobyte.webpaths.WebPaths;
 
@@ -37,9 +38,9 @@ public class MainMenu
 		menu.addBrand(brand);
 		menu.addToggleButton();
 
-		Element collapse = menu.addCollapsible();
-		Element main = menu.addSection(collapse);
-		Element right = menu.addSectionRight(collapse);
+		Div collapse = menu.addCollapsible();
+		UnorderedList main = menu.addSection(collapse);
+		UnorderedList right = menu.addSectionRight(collapse);
 
 		menu.addLink(main, "/gemüse", "Gemüse", false);
 		menu.addLink(main, "/kompost", "Kompost", false);

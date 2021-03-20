@@ -1,40 +1,42 @@
 Gemüse1,Gemüse2,Nachbar
 Blumenkohl,Buschbohnen,gut
 Blumenkohl,Sellerie,gut
+Blumenkohl,Erbsen,gut
+Blumenkohl,Möhren,gut
+Blumenkohl,Mangold,gut
 Blumenkohl,Tomaten,gut
 Blumenkohl,Kartoffeln,schlecht
-Blumenkohl,Kohle,schlecht
-Blumenkohl,Zwiebeln,schlecht
+Blumenkohl,Kohlarten,schlecht
+Blumenkohl,Brokkoli,schlecht
+Blumenkohl,Zwiebelgewächse,schlecht
+Blumenkohl,Erdbeeren,schlecht
 Buschbohnen,Baldrian,gut
 Buschbohnen,Borretsch,gut
 Buschbohnen,Dill,gut
 Buschbohnen,Erbsen,gut
 Buschbohnen,Erdbeeren,gut
 Buschbohnen,Gurken,gut
-Buschbohnen,Kartoffeln,gut
-Buschbohnen,Kohle,gut
+Buschbohnen,Bohnenkraut,gut
+Buschbohnen,Kohlarten,gut
 Buschbohnen,Radieschen,gut
 Buschbohnen,Rettich,gut
 Buschbohnen,Rote Bete,gut
 Buschbohnen,Sellerie,gut
 Buschbohnen,Tomaten,gut
 Buschbohnen,Fenchel,schlecht
-Buschbohnen,Stangenbohnen,schlecht
-Buschbohnen,Zwiebeln,schlecht
-Buschbohnen,Lauch,schlecht
-Buschbohnen,Schnittlauch,schlecht
-Erbsen,Kohle,gut
+Buschbohnen,Bohnenarten;Erbsenarten,schlecht
+Buschbohnen,Zwiebelgewächse,schlecht
+Erbsen,Kohl,gut
 Erbsen,Möhren,gut
 Erbsen,Radieschen,gut
 Erbsen,Rettich,gut
 Erbsen,Salat,gut
 Erbsen,Sellerie,gut
 Erbsen,Spinat,gut
-Erbsen,Bohnen,schlecht
-Erbsen,Erbsen,schlecht
-Erbsen,Lauch,schlecht
+Erbsen,Bohnenarten,schlecht
+Erbsen,Erbsenarten,schlecht
 Erbsen,Tomaten,schlecht
-Erbsen,Zwiebeln,schlecht
+Erbsen,Zwiebelgewächse,schlecht
 Fenchel,Endivie,gut
 Fenchel,Gurken,gut
 Fenchel,Kopfsalat,gut
@@ -44,12 +46,12 @@ Fenchel,Tomaten,schlecht
 Gurken,Basilikum,gut
 Gurken,Dill,gut
 Gurken,Fenchel,gut
-Gurken,Kohle,gut
+Gurken,Kohlarten,gut
 Gurken,Kopfsalat,gut
 Gurken,Sellerie,gut
 Gurken,Spinat,gut
 Gurken,Stangenbohnen,gut
-Gurken,Zwiebeln,gut
+Gurken,Zwiebelgewächse,gut
 Gurken,Radieschen,schlecht
 Gurken,Rettich,schlecht
 Knoblauch,Erdbeeren,gut
@@ -59,9 +61,10 @@ Knoblauch,Lauch,gut
 Knoblauch,Rosen,gut
 Knoblauch,Obstbäume,gut
 Knoblauch,Tomaten,gut
-Knoblauch,Zwiebeln,gut
-Knoblauch,Bohnen,schlecht
-Knoblauch,Kohle,schlecht
+Knoblauch,Zwiebelgewächse,gut
+Knoblauch,Erbsenarten,schlecht
+Knoblauch,Bohnenarten,schlecht
+Knoblauch,Kohlarten,schlecht
 Wirsing,Borretsch,gut
 Wirsing,Buschbohnen,gut
 Wirsing,Erbsen,gut
@@ -72,9 +75,8 @@ Wirsing,Salat,gut
 Wirsing,Sellerie,gut
 Wirsing,Spinat,gut
 Wirsing,Tomaten,gut
-Wirsing,Knoblauch,schlecht
-Wirsing,Kohle,schlecht
-Wirsing,Zwiebeln,schlecht
+Wirsing,Kohlarten,schlecht
+Wirsing,Zwiebelgewächse,schlecht
 Rosenkohl,Borretsch,gut
 Rosenkohl,Buschbohnen,gut
 Rosenkohl,Erbsen,gut
@@ -85,9 +87,8 @@ Rosenkohl,Salat,gut
 Rosenkohl,Sellerie,gut
 Rosenkohl,Spinat,gut
 Rosenkohl,Tomaten,gut
-Rosenkohl,Knoblauch,schlecht
-Rosenkohl,Kohle,schlecht
-Rosenkohl,Zwiebeln,schlecht
+Rosenkohl,Kohlarten,schlecht
+Rosenkohl,Zwiebelgewächse,schlecht
 Salat,Bohnen,gut
 Salat,Borretsch,gut
 Salat,Dill,gut
@@ -100,22 +101,19 @@ Salat,Rote Bete,gut
 Salat,Spinat,gut
 Salat,Tomaten,gut
 Salat,Kresse,schlecht
-Salat,Kohle,schlecht
 Salat,Petersilie,schlecht
 Salat,Sellerie,schlecht
 Möhren,Dill,gut
 Möhren,Endivie,gut
 Möhren,Erbsen,gut
-Möhren,Knoblauch,gut
-Möhren,Kohle,gut
+Möhren,Pastinaken,schlecht
+Möhren,Kohlarten,gut
 Möhren,Kresse,gut
-Möhren,Lauch,gut
 Möhren,Radieschen,gut
 Möhren,Rettich,gut
 Möhren,Salat,gut
-Möhren,Schnittlauch,gut
 Möhren,Tomaten,gut
-Möhren,Zwiebeln,gut
+Möhren,Zwiebelgewächse,gut
 Möhren,Möhren,schlecht
 Möhren,Pfefferminze,schlecht
 Lauch,Erdbeeren,gut
@@ -124,8 +122,8 @@ Lauch,Knoblauch,gut
 Lauch,Sellerie,gut
 Lauch,Spinat,gut
 Lauch,Tomaten,gut
-Lauch,Bohnen,schlecht
-Lauch,Erbsen,schlecht
+Lauch,Bohnenarten,schlecht
+Lauch,Erbsenarten,schlecht
 Rettich,Bohnen,gut
 Rettich,Möhren,gut
 Rettich,Kresse,gut
@@ -137,23 +135,29 @@ Radieschen,Möhren,gut
 Radieschen,Kresse,gut
 Radieschen,Salat,gut
 Radieschen,Tomaten,gut
+Radieschen,Zwiebeln,schlecht
 Radieschen,Gurken,schlecht
 Rote Bete,Bohnen,gut
 Rote Bete,Bohnenkraut,gut
 Rote Bete,Dill,gut
 Rote Bete,Zwiebeln,gut
+Rote Bete,Möhren,gut
+Rote Bete,Kohlrabi,gut
+Rote Bete,Pastinaken,gut
+Rote Bete,Mangold,schlecht
+Rote Bete,Kartoffeln,schlecht
 Rote Bete,Spinat,schlecht
 Sellerie,Bohnen,gut
 Sellerie,Erbsen,gut
-Sellerie,Kohle,gut
+Sellerie,Kohlarten,gut
 Sellerie,Lauch,gut
 Sellerie,Spinat,gut
 Sellerie,Tomaten,gut
-Sellerie,Sellerie,schlecht
+Sellerie,Sellerie;Kartoffeln,schlecht
 Spinat,Bohnen,schlecht
 Spinat,Erbsen,schlecht
 Spinat,Erdbeeren,schlecht
-Spinat,Kohle,schlecht
+Spinat,Kohlarten,schlecht
 Spinat,Radieschen,schlecht
 Spinat,Rettich,schlecht
 Spinat,Salat,schlecht
@@ -165,21 +169,19 @@ Stangenbohnen,Rote Bete,gut
 Stangenbohnen,Salat,gut
 Stangenbohnen,Sellerie,gut
 Stangenbohnen,Spinat,gut
-Stangenbohnen,Buschbohnen,schlecht
+Stangenbohnen,Bohnenarten;Erbsenarten,schlecht
 Stangenbohnen,Kürbis,gut
-Stangenbohnen,Erbsen,schlecht
-Stangenbohnen,Lauch,schlecht
-Stangenbohnen,Zwiebeln,schlecht
+Stangenbohnen,Zwiebelgewächse,schlecht
 Tomaten,Buschbohnen,gut
 Tomaten,Möhren,gut
-Tomaten,Kohle,gut
-Tomaten,Lauch,gut
+Tomaten,Kohlarten,gut
+Tomaten,Mairüben,gut
 Tomaten,Pastinaken,gut
 Tomaten,Petersilie,gut
 Tomaten,Salat,gut
 Tomaten,Sellerie,gut
 Tomaten,Spinat,gut
-Tomaten,Zwiebeln,gut
+Tomaten,Zwiebelgewächse,gut
 Tomaten,Rotkohl,schlecht
 Tomaten,Erbsen,schlecht
 Tomaten,Fenchel,schlecht
@@ -196,10 +198,10 @@ Zwiebeln,Tomaten,gut
 Zwiebeln,Pastinaken,gut
 Zwiebeln,Rosen,gut
 Zwiebeln,Salat,gut
-Zwiebeln,Bohnen,schlecht
-Zwiebeln,Erbsen,schlecht
-Zwiebeln,Kohle,schlecht
-Zwiebeln,Lauch,schlecht
+Zwiebeln,Bohnenarten,schlecht
+Zwiebeln,Erbsenarten,schlecht
+Zwiebeln,Kohlarten,schlecht
+Zwiebeln,Zwiebelgewächse,schlecht
 Mangold,Buschbohnen,gut
 Mangold,Radieschen,gut
 Mangold,Mairüben,gut
@@ -207,3 +209,36 @@ Mangold,Kohl,gut
 Mangold,Möhren,gut
 Kürbis,Stangenbohnen,gut
 Kürbis,Ringelblume,gut
+Kohl,Mairüben,schlecht
+Kohl,Kohl,schlecht
+Brokkoli,Buschbohnen,gut
+Brokkoli,Sellerie,gut
+Brokkoli,Erbsen,gut
+Brokkoli,Möhren,gut
+Brokkoli,Mangold,gut
+Brokkoli,Tomaten,gut
+Brokkoli,Kartoffeln,schlecht
+Brokkoli,Kohl,schlecht
+Brokkoli,Blumenkohl,schlecht
+Brokkoli,Zwiebelgewächse,schlecht
+Brokkoli,Knoblauch,schlecht
+Brokkoli,Erdbeeren,schlecht
+Kartoffeln,Borretsch,gut
+Kartoffeln,Spinat,gut
+Kartoffeln,Knoblauch,gut
+Kartoffeln,Erbsenarten,schlecht
+Kartoffeln,Gurken,schlecht
+Kartoffeln,Tomaten,schlecht
+Kartoffeln,Rote Bete,schlecht
+Kartoffeln,Zwiebeln,schlecht
+Kartoffeln,Sellerie,schlecht
+Pastinaken,Möhren;Petersilie;Sellerie,schlecht
+Pastinaken,Rote Bete,gut
+Pastinaken,Salat,gut
+Kohlrabi,Bohnenarten;Erbsenarten;Erdbeeren;Tomaten;Rote Bete;Salat;Zwiebelgewächse,gut
+Kohlrabi,Fenchel,schlecht
+Grünkohl,Erdbeeren;Kohlarten;Zwiebelgewächse,schlecht
+Grünkohl,Buschbohnen;Erbsenarten;Tomaten;Möhren;Salat;Spinat;Sellerie,gut
+Erdbeeren,Kohlarten,schlecht
+Erdbeeren,Borretsch;Zwiebelgewächse;Salat;Buschbohnen;Radieschen,gut
+Asia-Salat,Salat,gut

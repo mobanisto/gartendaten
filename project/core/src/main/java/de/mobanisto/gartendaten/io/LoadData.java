@@ -276,4 +276,34 @@ public class LoadData
 		return null;
 	}
 
+	private static final String keyFamilie = "Familie";
+	private static final String keyKultur = "Kultur";
+
+	public void loadFamilien(Path path, Data data) throws IOException
+	{
+		try (BufferedReader reader = Files.newBufferedReader(path)) {
+			loadFamilien(reader, data);
+		}
+	}
+
+	public void loadFamilien(Reader reader, Data data) throws IOException
+	{
+		ICsvMapReader csvReader = new CsvMapReader(reader,
+				CsvPreference.EXCEL_PREFERENCE);
+
+		final String[] header = csvReader.getHeader(true);
+
+		Map<String, String> map;
+		while ((map = csvReader.read(header)) != null) {
+			String familie = map.get(keyFamilie);
+			String kulturen = map.get(keyKultur);
+			for (String kultur : Splitter.on(";").split(kulturen)) {
+				data.getFamilien().put(familie, kultur);
+				data.getKulturZuFamilie().put(kultur, familie);
+			}
+		}
+
+		csvReader.close();
+	}
+
 }

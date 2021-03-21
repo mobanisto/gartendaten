@@ -13,6 +13,7 @@ public class TestReadData
 	{
 		Path fileWikidata = SystemPaths.CWD.resolve("../../data/wikidata.csv");
 		Path fileMix = SystemPaths.CWD.resolve("../../data/mix.csv");
+		Path fileFamilien = SystemPaths.CWD.resolve("../../data/familien.csv");
 		Path file2021 = SystemPaths.CWD.resolve("../../data/2021/liste");
 
 		Data data = new Data();
@@ -20,6 +21,7 @@ public class TestReadData
 		LoadData task = new LoadData();
 		task.loadWikidata(fileWikidata, data);
 		task.loadMix(fileMix, data);
+		task.loadFamilien(fileFamilien, data);
 		data.getNames().put("2021", task.loadListe(file2021));
 
 		System.out.println("# Plants");
@@ -32,6 +34,14 @@ public class TestReadData
 		for (Fruit fruit : data.getFruits().values()) {
 			System.out.println(String.format("%s Q%d", fruit.getName(),
 					fruit.getWikidata()));
+		}
+
+		System.out.println("# Familien");
+		for (String familie : data.getFamilien().keySet()) {
+			System.out.println("## " + familie);
+			for (String kultur : data.getFamilien().get(familie)) {
+				System.out.println(kultur);
+			}
 		}
 
 		System.out.println("# List");

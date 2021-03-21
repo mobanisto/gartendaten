@@ -37,4 +37,9 @@ public class Data
 	@Getter
 	private Map<String, String> lichtKommentar = new HashMap<>();
 
+	@Getter
+	private Multimap<String, String> familien = HashMultimap.create();
+	@Getter
+	private Map<String, String> kulturZuFamilie = new HashMap<>();
+
 }

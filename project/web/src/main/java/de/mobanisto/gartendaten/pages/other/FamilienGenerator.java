@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import de.mobanisto.gartendaten.Data;
+import de.mobanisto.gartendaten.Plant;
 import de.mobanisto.gartendaten.Website;
 import de.mobanisto.gartendaten.pages.base.SimpleBaseGenerator;
 import de.topobyte.jsoup.HTML;
@@ -53,6 +54,10 @@ public class FamilienGenerator extends SimpleBaseGenerator
 		ListGroupDiv list = content.ac(Bootstrap.listGroupDiv());
 		for (String plantName : plantNames) {
 			if (done.contains(plantName)) {
+				continue;
+			}
+			Plant plant = data.getPlants().get(plantName);
+			if (!plant.isPrimary()) {
 				continue;
 			}
 			list.addA("/pflanze/" + plantName, plantName);

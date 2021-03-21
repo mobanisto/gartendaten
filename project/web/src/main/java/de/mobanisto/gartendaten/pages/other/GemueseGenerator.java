@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import de.mobanisto.gartendaten.Data;
+import de.mobanisto.gartendaten.Plant;
 import de.mobanisto.gartendaten.Website;
 import de.mobanisto.gartendaten.pages.base.SimpleBaseGenerator;
 import de.topobyte.jsoup.HTML;
@@ -33,6 +34,10 @@ public class GemueseGenerator extends SimpleBaseGenerator
 		Collections.sort(plantNames);
 
 		for (String plantName : plantNames) {
+			Plant plant = data.getPlants().get(plantName);
+			if (!plant.isPrimary()) {
+				continue;
+			}
 			list.addA("/pflanze/" + plantName, plantName);
 		}
 	}

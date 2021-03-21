@@ -59,7 +59,7 @@ public class LoadData
 				Matcher matcher = patternWikidataItem.matcher(idPlant);
 				if (matcher.matches()) {
 					long id = Long.parseLong(matcher.group(1));
-					Plant plant = DataUtil.plant(data, name);
+					Plant plant = DataUtil.plant(data, name, false);
 					plant.setWikidata(id);
 				}
 			}
@@ -102,9 +102,9 @@ public class LoadData
 			String neighbor = Util.trim(map.get(keyNeighbor));
 			Fit fit = fit(neighbor);
 
-			Plant plant1 = DataUtil.plant(data, name1);
+			Plant plant1 = DataUtil.plant(data, name1, true);
 			for (String name2 : Splitter.on(";").split(names2)) {
-				Plant plant2 = DataUtil.plant(data, name2);
+				Plant plant2 = DataUtil.plant(data, name2, false);
 				data.getMix().put(plant1, plant2, fit);
 				data.getMix().put(plant2, plant1, fit);
 			}

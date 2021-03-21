@@ -42,6 +42,7 @@ public class MainMenu
 		UnorderedList main = menu.addSection(collapse);
 		UnorderedList right = menu.addSectionRight(collapse);
 
+		menu.addLink(main, "/familien", "Familien", false);
 		menu.addLink(main, "/gemüse", "Gemüse", false);
 		menu.addLink(main, "/kompost", "Kompost", false);
 

@@ -3,6 +3,7 @@ package de.mobanisto.gartendaten;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.Properties;
 
 import javax.servlet.ServletContextEvent;
@@ -73,18 +74,18 @@ public class InitListener implements ServletContextListener
 
 		LoadData loader = new LoadData();
 
-		loader.loadWikidata(
-				new InputStreamReader(Resources.stream("data/wikidata.csv")),
-				data);
-		loader.loadMix(new InputStreamReader(Resources.stream("data/mix.csv")),
-				data);
-		loader.loadDates(new InputStreamReader(
-				Resources.stream("data/pflanzkalender.csv")), data);
-		loader.loadLicht(
-				new InputStreamReader(Resources.stream("data/licht.csv")),
-				data);
-		data.getNames().put("2021", loader.loadListe(
-				new InputStreamReader(Resources.stream("data/2021/liste"))));
+		loader.loadWikidata(reader("data/wikidata.csv"), data);
+		loader.loadFamilien(reader("data/familien.csv"), data);
+		loader.loadMix(reader("data/mix.csv"), data);
+		loader.loadDates(reader("data/pflanzkalender.csv"), data);
+		loader.loadLicht(reader("data/licht.csv"), data);
+		data.getNames().put("2021",
+				loader.loadListe(reader("data/2021/liste")));
+	}
+
+	private Reader reader(String string)
+	{
+		return new InputStreamReader(Resources.stream(string));
 	}
 
 	@Override

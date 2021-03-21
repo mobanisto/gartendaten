@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import de.mobanisto.gartendaten.pages.markdown.MarkdownResourceGenerator;
 import de.mobanisto.gartendaten.pages.other.AboutGenerator;
+import de.mobanisto.gartendaten.pages.other.FamilienGenerator;
 import de.mobanisto.gartendaten.pages.other.GemueseGenerator;
 import de.mobanisto.gartendaten.pages.other.IndexGenerator;
 import de.mobanisto.gartendaten.pages.other.KompostGenerator;
@@ -28,6 +29,9 @@ public class MainPathResolver extends PathSpecResolver<ContentGeneratable, Void>
 	}
 
 	{
+		map(new PathSpec("familien"), (path, output, request, data) -> {
+			return new FamilienGenerator(path);
+		});
 		map(new PathSpec("gemüse"), (path, output, request, data) -> {
 			return new GemueseGenerator(path);
 		});

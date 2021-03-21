@@ -16,6 +16,8 @@ import org.supercsv.io.CsvMapReader;
 import org.supercsv.io.ICsvMapReader;
 import org.supercsv.prefs.CsvPreference;
 
+import com.google.common.base.Splitter;
+
 import de.mobanisto.gartendaten.Data;
 import de.mobanisto.gartendaten.DataUtil;
 import de.mobanisto.gartendaten.Fit;
@@ -96,14 +98,16 @@ public class LoadData
 		Map<String, String> map;
 		while ((map = csvReader.read(header)) != null) {
 			String name1 = Util.trim(map.get(keyVegetable1));
-			String name2 = Util.trim(map.get(keyVegetable2));
+			String names2 = Util.trim(map.get(keyVegetable2));
 			String neighbor = Util.trim(map.get(keyNeighbor));
 			Fit fit = fit(neighbor);
 
 			Plant plant1 = DataUtil.plant(data, name1);
-			Plant plant2 = DataUtil.plant(data, name2);
-			data.getMix().put(plant1, plant2, fit);
-			data.getMix().put(plant2, plant1, fit);
+			for (String name2 : Splitter.on(";").split(names2)) {
+				Plant plant2 = DataUtil.plant(data, name2);
+				data.getMix().put(plant1, plant2, fit);
+				data.getMix().put(plant2, plant1, fit);
+			}
 		}
 
 		csvReader.close();

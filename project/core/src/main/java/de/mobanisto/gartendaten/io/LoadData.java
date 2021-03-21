@@ -102,11 +102,8 @@ public class LoadData
 			String neighbor = Util.trim(map.get(keyNeighbor));
 			Fit fit = fit(neighbor);
 
-			Plant plant1 = DataUtil.plant(data, name1, true);
 			for (String name2 : Splitter.on(";").split(names2)) {
-				Plant plant2 = DataUtil.plant(data, name2, false);
-				data.getMix().put(plant1, plant2, fit);
-				data.getMix().put(plant2, plant1, fit);
+				data.getRawMix().put(name1, name2, fit);
 			}
 		}
 

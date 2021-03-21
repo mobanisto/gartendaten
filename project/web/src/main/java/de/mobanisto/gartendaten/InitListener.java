@@ -79,6 +79,7 @@ public class InitListener implements ServletContextListener
 		loader.loadMix(reader("data/mix.csv"), data);
 		loader.loadDates(reader("data/pflanzkalender.csv"), data);
 		loader.loadLicht(reader("data/licht.csv"), data);
+		DataUtil.deriveMix(data);
 		data.getNames().put("2021",
 				loader.loadListe(reader("data/2021/liste")));
 	}

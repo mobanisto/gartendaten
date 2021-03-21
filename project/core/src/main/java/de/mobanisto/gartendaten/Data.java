@@ -20,6 +20,8 @@ public class Data
 	private Map<String, Fruit> fruits = new HashMap<>();
 
 	@Getter
+	private Table<String, String, Fit> rawMix = HashBasedTable.create();
+	@Getter
 	private Table<Plant, Plant, Fit> mix = HashBasedTable.create();
 
 	@Getter

@@ -153,7 +153,7 @@ public class ListeGenerator extends SimpleBaseGenerator
 			if (got.contains(plant)) {
 				continue;
 			}
-			list.addTextItem(plant.getName());
+			list.addA("/pflanze/" + plant.getName(), plant.getName());
 		}
 	}
 

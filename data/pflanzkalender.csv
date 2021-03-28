@@ -1,9 +1,9 @@
 Pflanze,Vorkultur von,Vorkultur bis,Direktsaat von,Direktsaat bis,Pflanzung von,Pflanzung bis
-Asia-Salat,,,15.02,30.04,,
-Asia-Salat,,,01.09,15.10,,
+Asia-Salat,keine,keine,15.02,30.04,,
+Asia-Salat,keine,keine,01.09,15.10,,
 Aubergine,01.02,01.03,,,15.05,01.06
 Baldrian,,,,,,
-Basilikum,,,,,,
+Basilikum,,,keine,keine,15.05,30.06
 Blumenkohl,15.02,15.03,,,01.03,01.05
 Bohnenkraut,,,,,,
 Borretsch,,,01.04,30.05,,
@@ -20,13 +20,13 @@ Feuerbohnen,,,,,,
 Grünkohl,01.05,15.06,,,01.06,30.07
 Gurken,01.04,15.05,15.05,30.05,15.05,30.05
 Herbstrübe,,,01.08,30.08,,
-Kartoffeln,,,,,,
+Kartoffeln,15.03,,15.04,,keine,keine
 Kerbel,,,,,,
 Knoblauch,,,01.02,30.03,,
 Kohlrabi,15.02,30.07,,,15.03,15.08
 Koriander,,,,,,
 Kürbis,01.04,01.05,15.05,15.06,,
-Lauch (Berg-Lauch),01.02,15.05,30.03,15.06,,
+Lauch;Berg-Lauch,01.02,15.05,30.03,15.06,,
 Liebstöckl,,,,,,
 Mairüben,,,01.03,30.04,,
 Mangold,,,15.04,15.08,,
@@ -49,10 +49,10 @@ Salbei,,,,,,
 Schnittlauch,,,,,,
 Sellerie,,,,,,
 Spargelsalat,,,15.03,15.07,,
-Spinat,,,15.02,15.04,,
-Spinat,,,01.07,30.09,,
+Spinat,keine,keine,15.02,15.04,,
+Spinat,keine,keine,01.07,30.09,,
 Stangenbohnen,,,,,,
-Tomaten,15.02,15.03,,,30.05,
+Tomaten,15.02,30.03,keine,keine,30.05,
 Waldmeister,,,,,,
 Wirsing,,,,,,
 Zitronenmelisse,,,,,,

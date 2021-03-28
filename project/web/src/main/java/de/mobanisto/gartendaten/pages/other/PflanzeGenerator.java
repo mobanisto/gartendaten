@@ -11,8 +11,10 @@ import de.mobanisto.gartendaten.Plant;
 import de.mobanisto.gartendaten.ThingByNameComparator;
 import de.mobanisto.gartendaten.Website;
 import de.mobanisto.gartendaten.pages.base.SimpleBaseGenerator;
+import de.mobanisto.gartendaten.util.PlantUtil;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.components.A;
+import de.topobyte.jsoup.components.P;
 import de.topobyte.jsoup.components.Table;
 import de.topobyte.jsoup.components.TableRow;
 import de.topobyte.webgun.exceptions.PageNotFoundException;
@@ -38,6 +40,8 @@ public class PflanzeGenerator extends SimpleBaseGenerator
 			throw new PageNotFoundException();
 		}
 
+		PlantUtil pu = new PlantUtil(data);
+
 		content.ac(HTML.h1(name));
 
 		long wikidata = plant.getWikidata();
@@ -47,6 +51,15 @@ public class PflanzeGenerator extends SimpleBaseGenerator
 							wikidata),
 					String.format("Wikidata item Q%d", wikidata)));
 		}
+
+		content.ac(HTML.h2("Eigenschaften"));
+		P props = content.ac(HTML.p());
+
+		props.at("Licht: " + pu.getLicht(plant));
+		props.ac(HTML.br());
+		props.at("Vorzucht: " + pu.getVorzucht(plant));
+		props.ac(HTML.br());
+		props.at("Direktsaat: " + pu.getDirektsaat(plant));
 
 		Map<Plant, Fit> fits = data.getMix().row(plant);
 

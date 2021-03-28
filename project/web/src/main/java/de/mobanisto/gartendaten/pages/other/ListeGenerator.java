@@ -10,17 +10,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.google.common.base.CaseFormat;
-import com.google.common.base.Converter;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
 
 import de.mobanisto.gartendaten.Data;
 import de.mobanisto.gartendaten.Licht;
-import de.mobanisto.gartendaten.PflanzInterval;
 import de.mobanisto.gartendaten.Plant;
 import de.mobanisto.gartendaten.Website;
 import de.mobanisto.gartendaten.pages.base.SimpleBaseGenerator;
+import de.mobanisto.gartendaten.util.PlantUtil;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.bootstrap4.Bootstrap;
 import de.topobyte.jsoup.bootstrap4.components.ContextualType;
@@ -35,12 +33,14 @@ public class ListeGenerator extends SimpleBaseGenerator
 
 	private String listName;
 	private Data data;
+	private PlantUtil pu;
 
 	public ListeGenerator(WebPath path, String listName)
 	{
 		super(path);
 		this.listName = listName;
 		data = Website.INSTANCE.getData();
+		pu = new PlantUtil(data);
 	}
 
 	@Override
@@ -136,11 +136,11 @@ public class ListeGenerator extends SimpleBaseGenerator
 				ListGroupItem item = list.addTextItem(Joiner.on(", ")
 						.join(Iterables.transform(group, Plant::getName)));
 				item.ap(HTML.br()).at(Joiner.on(", ")
-						.join(Iterables.transform(group, this::getLicht)));
+						.join(Iterables.transform(group, pu::getLicht)));
 				item.ap(HTML.br()).at("Vorzucht: ").at(Joiner.on(", ")
-						.join(Iterables.transform(group, this::getVorzucht)));
+						.join(Iterables.transform(group, pu::getVorzucht)));
 				item.ap(HTML.br()).at("Direktsaat: ").at(Joiner.on(", ")
-						.join(Iterables.transform(group, this::getDirektsaat)));
+						.join(Iterables.transform(group, pu::getDirektsaat)));
 				for (Plant plant : group) {
 					got.add(plant);
 				}
@@ -182,38 +182,6 @@ public class ListeGenerator extends SimpleBaseGenerator
 			return true;
 		}
 		return false;
-	}
-
-	private String getLicht(Plant plant)
-	{
-		Collection<Licht> values = data.getLicht().get(plant.getName());
-		if (values.isEmpty()) {
-			return "-";
-		}
-		Converter<String, String> converter = CaseFormat.UPPER_UNDERSCORE
-				.converterTo(CaseFormat.UPPER_CAMEL);
-		return Joiner.on("/").join(
-				Iterables.transform(values, l -> converter.convert(l.name())));
-	}
-
-	private String getVorzucht(Plant plant)
-	{
-		Collection<PflanzInterval> values = data.getVorzucht()
-				.get(plant.getName());
-		if (values.isEmpty()) {
-			return "-";
-		}
-		return Joiner.on("/").join(values);
-	}
-
-	private String getDirektsaat(Plant plant)
-	{
-		Collection<PflanzInterval> values = data.getDirektsaat()
-				.get(plant.getName());
-		if (values.isEmpty()) {
-			return "-";
-		}
-		return Joiner.on("/").join(values);
 	}
 
 	private Set<Plant> extend(Set<Plant> group, Plant plant)

@@ -124,6 +124,14 @@ Lauch,Spinat,gut
 Lauch,Tomaten,gut
 Lauch,Bohnenarten,schlecht
 Lauch,Erbsenarten,schlecht
+Berg-Lauch,Erdbeeren,gut
+Berg-Lauch,Möhren,gut
+Berg-Lauch,Knoblauch,gut
+Berg-Lauch,Sellerie,gut
+Berg-Lauch,Spinat,gut
+Berg-Lauch,Tomaten,gut
+Berg-Lauch,Bohnenarten,schlecht
+Berg-Lauch,Erbsenarten,schlecht
 Rettich,Bohnen,gut
 Rettich,Möhren,gut
 Rettich,Kresse,gut
@@ -242,3 +250,5 @@ Grünkohl,Buschbohnen;Erbsenarten;Tomaten;Möhren;Salat;Spinat;Sellerie,gut
 Erdbeeren,Kohlarten,schlecht
 Erdbeeren,Borretsch;Zwiebelgewächse;Salat;Buschbohnen;Radieschen,gut
 Asia-Salat,Salat,gut
+Mairüben,Buschbohnen;Erbsen;Dill;Salat;Mangold,gut
+Mairüben,Kohlarten,schlecht
